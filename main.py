@@ -1,16 +1,18 @@
-# This is a sample Python script.
+# Computer Olympiad
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def Input (n):
+    a = {}
+    for i in range(0,n):
+        sex , name , language = input().split(sep=".")
+        name = name.casefold()
+        name = name.capitalize()
+        a[sex] = (name,language)
+    return a
 
+repetition = int(input())
+A = Input(repetition)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+A = dict(sorted(A.items(),key=lambda item : (item[0],item[0][0])))
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+for k , v in A.items():
+    print(f'{k} : {v}', end='\n')
